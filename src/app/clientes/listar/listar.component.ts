@@ -10,6 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listar',
@@ -32,9 +33,10 @@ export class ListarComponent implements OnInit {
 
   public pesquisaPorNome: string = '';
   public listaClientes: Cliente[] = [];
-  public colunasTable: string[] = ["id", "nome", "cpf", "dataNascimento", "email"];
+  public colunasTable: string[] = ["id", "nome", "cpf", "dataNascimento", "email", "acoes"];
 
   private clienteService = inject(ClienteService);
+  private router = inject(Router);
 
   public ngOnInit(): void {
     this.listaClientes = this.clienteService.pesquisarCliente('');
@@ -43,6 +45,10 @@ export class ListarComponent implements OnInit {
 
   public pesquisarCliente(): void {
     this.listaClientes = this.clienteService.pesquisarCliente(this.pesquisaPorNome);
+  }
+
+  public editarCliente(id: string): void {
+    this.router.navigate(['/cadastro'], { queryParams: { "id": id } });
   }
 
 }
