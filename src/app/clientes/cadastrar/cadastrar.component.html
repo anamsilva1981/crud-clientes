@@ -1,1 +1,66 @@
-<p>cadastrar works!</p>
+<div fxLayout="row" fxLayoutAlign="center">
+    <div fxLayout="column" fxFlex="850px">
+        <form class="mt-60" #clientesForm="ngForm">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>Dados pessoais</mat-card-title>
+                </mat-card-header>
+
+                <mat-card-content class="mt-20">
+                    <div fxLayoutAlign="row" fxLayoutAlign="start" fxLayoutGap="16px">
+                        <div fxLayout="column" fxFlex="800px">
+                            <mat-form-field class="full-width">
+                                <mat-label>Nome: *</mat-label>
+                                <input type="text" placeholder="Ex: José da silva" matInput nome="nome">
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div fxLayoutAlign="row" fxLayoutAlign="start" fxLayoutGap="16px">
+                        <div fxLayout="column" fxFlex="800px">
+                            <mat-form-field class="full-width">
+                                <mat-label>Email: *</mat-label>
+                                <input type="email" placeholder="Digite seu email" matInput nome="email">
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div fxLayoutAlign="row" fxLayoutAlign="start" fxLayoutGap="16px">
+                        <div fxLayout="column" fxFlex="390px">
+                            <mat-form-field class="full-width">
+                                <mat-label>Data de nascimento:* </mat-label>
+                                <input type="date" placeholder="Digite sua data de nascimento" matInput
+                                    nome="dataNascimento">
+                            </mat-form-field>
+                        </div>
+
+                        <div fxLayout="column" fxFlex="390px">
+                            <mat-form-field class="full-width">
+                                <mat-label>CPF: *</mat-label>
+                                <input type="number" placeholder="Digite seu cpf" matInput nome="cpf">
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                </mat-card-content>
+
+                <mat-card-actions>
+                    <button mat-flat-button color="primary">
+                        Salvar
+                        <mat-icon fontIcon="save"></mat-icon>
+                    </button>
+                    <button mat-flat-button color="warn">
+                        Editar
+                        <mat-icon fontIcon="refresh"></mat-icon>
+                    </button>
+                    <button mat-flat-button color="accent" class="ml-5">
+                        Limpar
+                        <mat-icon fontIcon="backspace"></mat-icon>
+                    </button>
+                </mat-card-actions>
+            </mat-card>
+        </form>
+
+    </div>
+
+</div>
