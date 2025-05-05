@@ -30,6 +30,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 export class ListarComponent implements OnInit {
 
+  public pesquisaPorNome: string = '';
   public listaClientes: Cliente[] = [];
   public colunasTable: string[] = ["id", "nome", "cpf", "dataNascimento", "email"];
 
@@ -38,6 +39,10 @@ export class ListarComponent implements OnInit {
   public ngOnInit(): void {
     this.listaClientes = this.clienteService.pesquisarCliente('');
     console.log(this.listaClientes, 'Lista de clientes');
+  }
+
+  public pesquisarCliente(): void {
+    this.listaClientes = this.clienteService.pesquisarCliente(this.pesquisaPorNome);
   }
 
 }
