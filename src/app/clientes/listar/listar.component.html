@@ -1,1 +1,36 @@
-<p>listar works!</p>
+<div fxLayout="row" fxLayoutAlign="center">
+    <div fxLayout="column" fxFlex="1200px">
+        <form class="mt-60" #buscarForm="ngForm">
+            <mat-card>
+                <mat-card-header appearance="outlined">
+                    <mat-card-title>Consulta</mat-card-title>
+                </mat-card-header>
+
+                <div fxLayout="row" fxLayoutAlign="start center">                
+                    <mat-card-content class="mt-20">
+                        <div fxLayout="row">
+                            <div fxLayout="column" fxFlex="965px">
+                                <mat-form-field class="full-width">
+                                    <mat-label>Nome:</mat-label>
+                                    <input 
+                                        matInput 
+                                        placeholder="ex: José"
+                                    >
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <button 
+                            mat-flat-button 
+                            color="primary" 
+                            type="submit">
+                            <mat-icon fontIcon="search"></mat-icon>
+                            Pesquisa 
+                        </button>
+                    </mat-card-actions>
+                </div>
+            </mat-card>
+        </form>
+    </div>
+</div>
