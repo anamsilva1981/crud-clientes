@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule } from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
@@ -7,6 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { Cliente } from './../cliente';
+import { ClienteService } from '../cliente.service';
 
 
 @Component({
@@ -25,11 +26,13 @@ import { Cliente } from './../cliente';
 })
 export class CadastrarComponent {
 
+  private clienteService = inject(ClienteService);
+
   public cliente: Cliente = Cliente.newCliente();
 
+  
   public salvarCliente(){
-    console.log(this.cliente, "salvarCliente");
-
+    this.clienteService.salvarCliente(this.cliente);
   }
 
 }
