@@ -1,7 +1,23 @@
-// @use '@angular/material' as mat;
-
-
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+.ml-5{
+    margin-left: 5px;
+  }
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mt-60 {
+  margin-top: 60px;
+}
+
+.mt-40 {
+  margin-top: 40px;
+}
+
+.full-width{
+    width: 100%;
+}
 
