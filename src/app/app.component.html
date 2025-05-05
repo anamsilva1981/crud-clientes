@@ -1,19 +1,22 @@
 <mat-toolbar color="primary">
     <span>Cadastro de clientes</span>
     <span class="spacer"></span>
-    <button 
-        routerLink="/cadastro">
-        <mat-icon fontIcon="feed"></mat-icon>
-        Formulário
-    </button>
-    <button 
-        routerLink="/lista">
-        <mat-icon fontIcon="search"></mat-icon>
-        Consulta
-    </button>
+    <div fxLayoutGap="15px" fxLayoutAlign="end center" fxLayout="row">
+        <button 
+            routerLink="/cadastro"
+            mat-flat-button 
+            >
+            <mat-icon fontIcon="feed"></mat-icon>
+            Formulário
+        </button>
+        <button
+            routerLink="/lista"
+            mat-flat-button
+            >
+            <mat-icon fontIcon="search"></mat-icon>
+            Consulta
+        </button>
+    </div>
 </mat-toolbar>
-
-
-
 
 <router-outlet />
