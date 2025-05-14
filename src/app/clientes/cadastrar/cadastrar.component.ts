@@ -8,7 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { Cliente } from './../cliente';
 import { ClienteService } from '../cliente.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgIf } from '@angular/common';
 
 @Component({
@@ -29,9 +29,12 @@ import { NgIf } from '@angular/common';
 export class CadastrarComponent implements OnInit {
   private clienteService = inject(ClienteService);
   private route = inject(ActivatedRoute);
+  private router = inject(Router);
 
   public cliente: Cliente = Cliente.newCliente();
   public atualizando: boolean = false;
+
+  constructor() {}
 
   public ngOnInit(): void {
     this.carregarClientePorId();
@@ -53,8 +56,16 @@ export class CadastrarComponent implements OnInit {
   }
 
   public salvarCliente() {
-    this.clienteService.salvarCliente(this.cliente);
-    this.cliente = Cliente.newCliente();
-    alert('Cliente salvo com sucesso!');
+    if(!this.atualizando){
+
+      this.clienteService.salvarCliente(this.cliente);
+      this.cliente = Cliente.newCliente();
+      this.router.navigate(['/lista'])
+      alert('Cliente salvo com sucesso!');
+    }else{
+      this.clienteService.atualizarCliente(this.cliente);
+      this.router.navigate(['/lista'])
+      alert('Cliente atualizado com sucesso!');
+    }
   }
 }
