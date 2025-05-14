@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, Query } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule } from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { Cliente } from './../cliente';
 import { ClienteService } from '../cliente.service';
 import { ActivatedRoute } from '@angular/router';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-cadastrar',
@@ -20,6 +21,7 @@ import { ActivatedRoute } from '@angular/router';
     MatInputModule,
     MatIconModule,
     MatButtonModule,
+    NgIf
   ],
   templateUrl: './cadastrar.component.html',
   styleUrl: './cadastrar.component.scss',
@@ -40,9 +42,12 @@ export class CadastrarComponent implements OnInit {
       const params = query['params'];
       const id = params['id'];
       if (id) {
-        this.atualizando = true;
-        this.cliente =
-          this.clienteService.buscarClientePorId(id) || Cliente.newCliente();
+        let clienteEncontrado = this.clienteService.buscarClientePorId(id);
+        if(clienteEncontrado){
+          this.atualizando = true;
+          this.cliente = clienteEncontrado;
+        }
+        
       }
     });
   }
